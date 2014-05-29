@@ -71,6 +71,12 @@ AC_ARG_ENABLE(driver-detach,
     CFLAGS="$CFLAGS -DDETACH_KERNEL_DRIVER"
 fi])
 
+# Support old versions of autotools that don't provide docdir
+AC_SUBST([docdir])
+if test x$docdir = x; then
+  AC_SUBST([docdir], ${datadir}/doc/AC_PACKAGE_NAME)
+fi
+
 dnl Generate the output
 AC_CONFIG_HEADER(config.h)
 
