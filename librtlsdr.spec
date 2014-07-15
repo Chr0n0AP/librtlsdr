@@ -44,6 +44,8 @@ Requires: e2fsprogs
 BuildRequires: e2fsprogs-devel
 %endif
 
+Requires(pre):  redhawk
+
 # libusb requirements
 Requires:      libusb1 >= 1.0.0
 BuildRequires: libusb1-devel >= 1.0.0
