@@ -16,20 +16,15 @@
 #
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see http://www.gnu.org/licenses/.
-#
-# By default, the RPM will install to the standard REDHAWK SDR root location (/var/redhawk/sdr)
-# You can override this at install time using --prefix /new/sdr/root when invoking rpm (preferred method, if you must)
 
 #reflects the name in the configure.ac file
 Name:		librtlsdr
 Version:	0.5.2
 Release:	1%{?dist}
 Summary:	The librtlsdr library used to interface with rtl dongles.
-Prefix:		/usr/local
 
 Group:		Applications/Engineering
 License:	GPL
-URL:		http://redhawksdr.org/	
 Source0:	%{name}-%{version}.tar.gz
 
 AutoReqProv: yes
@@ -43,8 +38,6 @@ BuildRequires: libuuid-devel
 Requires: e2fsprogs
 BuildRequires: e2fsprogs-devel
 %endif
-
-Requires(pre):  redhawk
 
 # libusb requirements
 Requires:      libusb1 >= 1.0.0
@@ -68,13 +61,13 @@ The librtlsdr Library for use with REDHAWK.
 
 %build
 autoreconf -i
-SDRROOT=%{_sdrroot} %configure
+%configure
 make %{?_smp_mflags} 
 
 
 %install
 rm -rf %{buildroot}
-make install DESTDIR=%{buildroot}
+make install install-udev-rules DESTDIR=%{buildroot}
 
 
 %clean
@@ -82,7 +75,7 @@ rm -rf %{buildroot}
 
 
 %files
-%defattr(644,redhawk,redhawk)
+%defattr(-,root,root,-)
 %{_includedir}/rtl-sdr.h 
 %{_includedir}/rtl-sdr_export.h
 %{_libdir}/librtlsdr.la
@@ -99,3 +92,4 @@ rm -rf %{buildroot}
 %{_bindir}/rtl_adsb
 %{_bindir}/rtl_power
 %{_docdir}/%{name}
+%{_sysconfdir}/udev/rules.d
