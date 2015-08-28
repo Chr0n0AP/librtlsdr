@@ -25,7 +25,7 @@ if [ "$1" = "rpm" ]; then
         mydir=`dirname $0`
         tmpdir=`mktemp -d`
         cp -r ${mydir} ${tmpdir}/librtlsdr-0.5.2
-        tar czf ${tmpdir}/librtlsdr-0.5.2.tar.gz --exclude=".git" -C ${tmpdir} librtlsdr-0.5.2 
+        tar czf ${tmpdir}/librtlsdr-0.5.2.tar.gz --exclude=".git" -C ${tmpdir} librtlsdr-0.5.2
         echo `ls ${tmpdir}`
         rpmbuild -ta ${tmpdir}/librtlsdr-0.5.2.tar.gz
         echo "1"
@@ -35,7 +35,7 @@ if [ "$1" = "rpm" ]; then
         exit 1
     fi
 else
-    autoconf -i
+    autoreconf -i
     ./configure
     make -j
 fi
