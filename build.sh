@@ -35,7 +35,7 @@ if [ "$1" = "rpm" ]; then
         exit 1
     fi
 else
-    autoreconf -i
+    ./reconf
     ./configure
     make -j
 fi
