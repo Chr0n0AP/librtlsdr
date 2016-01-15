@@ -3,9 +3,9 @@
 This is the forked version of RTLSDR library for building the REDHAWK rtldevice
 
 ## Build Requirements
-To building the rtlsdr library you will need the following packages:
+The following dependencies are needed to build the rtlsdr library:
 
-    libusb1.0-devel
+    libusb-1.0
 
 ## Build and Installation
 To build the library run the following commands:
@@ -22,10 +22,6 @@ In order to be able to use the dongle as a non-root user, you may install the ap
 ## REDHAWK Documentation
 
 REDHAWK Website: [www.redhawksdrorg](http://www.redhawksdr.org)
-
-Overview and Getting Started Guide: [PDF](http://sourceforge.net/projects/redhawksdr/files/redhawk-doc/1.10.2/REDHAWK_Overview_v1.10.2.pdf/download "PDF") [HTML](http://redhawksdr.github.com/Documentation/gettingstarted/main.html "HTML")
-
-Full REDHAWK Manual: [PDF](http://sourceforge.net/projects/redhawksdr/files/redhawk-doc/1.10.2/REDHAWK_Manual_v1.10.2.pdf/download "PDF") [HTML](http://redhawksdr.github.com/Documentation/main.html "HTML")
 
 ## Copyrights
 
