@@ -20,7 +20,7 @@
 #reflects the name in the configure.ac file
 Name:		librtlsdr
 Version:	0.5.2
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	The librtlsdr library used to interface with rtl dongles.
 
 Group:		Applications/Engineering
