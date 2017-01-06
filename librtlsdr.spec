@@ -20,7 +20,7 @@
 #reflects the name in the configure.ac file
 Name:		librtlsdr
 Version:	0.5.2
-Release:	3%{?dist}
+Release:	4%{?dist}
 Summary:	The librtlsdr library used to interface with rtl dongles.
 
 Group:		Applications/Engineering
@@ -68,6 +68,7 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 make install install-udev-rules DESTDIR=%{buildroot}
+make install install-blacklist DESTDIR=%{buildroot}
 
 
 %clean
@@ -93,3 +94,4 @@ rm -rf %{buildroot}
 %{_bindir}/rtl_power
 %{_docdir}/%{name}
 %{_sysconfdir}/udev/rules.d
+%{_sysconfdir}/modprobe.d/blacklist-dvb_usb_rtl28xxu.conf

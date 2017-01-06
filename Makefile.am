@@ -20,6 +20,13 @@ install-udev-rules:
 uninstall-udev-rules:
 	rm -rf $(DESTDIR)/etc/udev/rules.d/rtl-sdr.rules
 
+install-blacklist:
+	mkdir -p $(DESTDIR)/etc/modprobe.d
+	echo "blacklist dvb_usb_rtl28xxu" >> $(DESTDIR)/etc/modprobe.d/blacklist-dvb_usb_rtl28xxu.conf
+
+uninstall-blacklist:
+	rm -rf $(DESTDIR)/etc/modprove.d/blacklist-dvb_usb_rtl28xxu.conf
+
 EXTRA_DIST = git-version-gen
 
 if HAVE_DOXYGEN
