@@ -71,6 +71,10 @@ make install install-udev-rules DESTDIR=%{buildroot}
 make install install-blacklist DESTDIR=%{buildroot}
 
 
+%post
+rmmod dvb_usb_rtl28xxu &> /dev/null || true
+
+
 %clean
 rm -rf %{buildroot}
 
